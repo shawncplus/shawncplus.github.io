@@ -8,7 +8,7 @@ html {
   width: 70%;
   margin: 0 auto;
   padding: 0 48px;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.25;
   overflow: hidden;
   /* Resets and base styles from HTML5 Boilerplate */
@@ -30,7 +30,7 @@ html {
 .deck-container fieldset, .deck-container form, .deck-container label, .deck-container legend,
 .deck-container table, .deck-container caption, .deck-container tbody, .deck-container tfoot, .deck-container thead, .deck-container tr, .deck-container th, .deck-container td,
 .deck-container article, .deck-container aside, .deck-container canvas, .deck-container details, .deck-container figcaption, .deck-container figure,
-.deck-container footer, .deck-container header, .deck-container hgroup, .deck-container menu, .deck-container nav, .deck-container section, .deck-container summary,
+.deck-container header, .deck-container hgroup, .deck-container menu, .deck-container nav, .deck-container section, .deck-container summary,
 .deck-container time, .deck-container mark, .deck-container audio, .deck-container video {
   margin: 0;
   padding: 0;
@@ -168,7 +168,7 @@ html {
   -ms-interpolation-mode: bicubic;
 }
 .deck-container, .deck-container select, .deck-container input, .deck-container textarea {
-  color: #444;
+  color: #eee;
 }
 .deck-container a {
   color: #607890;
@@ -260,8 +260,9 @@ html {
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
-  padding: 1em;
+  padding: 15px;
   border: 1px solid #888;
+  background-color: #000;
 }
 .slide em {
   font-style: italic;
