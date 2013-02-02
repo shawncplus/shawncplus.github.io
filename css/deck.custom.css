@@ -73,6 +73,12 @@ a:hover {
 	margin-top: 20%;
 }
 
+.slide section.middle-small {
+	font-size: 1.5em;
+	text-align: center;
+	margin-top: 10%;
+}
+
 .slide section.middle.last {
 	margin-top: 0;
 }

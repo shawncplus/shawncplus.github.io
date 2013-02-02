@@ -1,0 +1,12 @@
+body #title h1 {
+	top: 10%;
+	margin-top: 10%;
+}
+
+body #title h2 {
+	margin-top: 20%;
+}
+
+.slide ol li img {
+	margin: 0;
+}
