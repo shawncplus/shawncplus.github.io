@@ -93,10 +93,32 @@
 	var markdownContent = '';
 	if (source && jQuery)
 	{
-		jQuery.get(source, function (data)
+		if (source.match(/^\w+\/[\w\-]+?:.+$/))
 		{
-			renderMarkdown(data);
-		});
+			var repo = source.split(':')[0];
+			var path = source.split(':')[1];
+			jQuery.ajax({
+				type: "GET",
+				url: 'https://api.github.com/repos/' + repo + '/contents/' + path,
+				dataType: "jsonp",
+				success: function(data) {
+					if (typeof data.data.content === 'undefined' || data.data.encoding !== 'base64')
+					{
+						return;
+					}
+
+					var content = data.data.content.replace(/\n/g, "");
+					renderMarkdown(atob(content));
+				}
+			});
+		}
+		else
+		{
+			jQuery.get(source, function (data)
+			{
+				renderMarkdown(data);
+			});
+		}
 	}
 	else
 	{
