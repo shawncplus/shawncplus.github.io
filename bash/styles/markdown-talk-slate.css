@@ -1,5 +1,21 @@
+@font-face {
+	font-family: mplus-1mn-regular;
+	src: url('/fonts/mplus-1mn-regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: mplus-1mn-medium;
+	src: url('/fonts/mplus-1mn-medium.ttf') format('truetype');
+}
+@font-face {
+	font-family: mplus-1c-regular;
+	src: url('/fonts/mplus-1c-regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: mplus-1c-thin;
+	src: url('/fonts/mplus-1c-thin.ttf') format('truetype');
+}
 body {
-	font-family: "M+ 1mn", monospace;
+	font-family: mplus-1mn-regular, monospace;
 	font-size: 25px;
 	line-height: 150%;
 	padding-top: 120px;
@@ -17,7 +33,7 @@ body {
 }
 
 .navbar .brand {
-	font-family: "M+ 1c", sans-serif;
+	font-family: mplus-1c-regular, sans-serif;
 	padding: 22px 20px 5px 25px;
 	font-weight: bold;
 	font-size: 40px;
@@ -27,7 +43,7 @@ body {
 }
 
 .navbar .subtitle {
-	font-family: "M+ 1c thin", sans-serif;
+	font-family: mplus-1c-thin, sans-serif;
 	color: #e80;
 }
 
@@ -37,7 +53,7 @@ body {
 }
 
 code, pre {
-	font-family: "M+ 1mn medium";
+	font-family: mplus-1mn-medium;
 	font-size: 20px;
 	line-height: 150%;
 	border: 1px solid #e1e1e8;
@@ -111,7 +127,7 @@ blockquote {
 blockquote p {
 	padding-left: 10px;
 	white-space: pre;
-	font-family: "M+ 1mn medium";
+	font-family: mplus-1mn-medium;
 	font-size: 20px;
 	line-height: 150%;
 	border: 1px solid #960050;
