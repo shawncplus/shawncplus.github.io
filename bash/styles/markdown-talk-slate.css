@@ -102,3 +102,19 @@ ol li.selected {
 	margin: 10px 0;
 	border-left: none !important;
 }
+
+blockquote {
+	border-color: #960050;
+	padding-left: 0;
+}
+
+blockquote p {
+	padding-left: 10px;
+	white-space: pre;
+	font-family: "M+ 1mn medium";
+	font-size: 20px;
+	line-height: 150%;
+	border: 1px solid #960050;
+	text-shadow: none;
+	background-color: black;
+}

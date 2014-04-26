@@ -8,8 +8,17 @@ var focusIndex = 0;
 focusPoints[focusIndex].classList.add('selected');
 document.onkeydown = function (e)
 {
-	if (e.keyCode !== 74 && e.keyCode !== 75)
+	if (e.keyCode !== 74 && e.keyCode !== 75 && e.keyCode !== 71)
 	{
+		return;
+	}
+
+	if (e.keyCode === 71)
+	{
+		window.scrollTo(0, 0);
+		focusPoints[focusIndex].classList.remove('selected');
+		focusIndex = 0;
+		focusPoints[focusIndex].classList.add('selected');
 		return;
 	}
 
@@ -19,10 +28,20 @@ document.onkeydown = function (e)
 	{
 		focusPoints[focusIndex].classList.remove('selected');
 		focusIndex += direction;
-		focusPoints[focusIndex].classList.add('selected');
+		var focusPoint = focusPoints[focusIndex];
+		focusPoint.classList.add('selected');
 
-		var top = focusPoints[focusIndex].documentOffsetTop() - ( window.innerHeight / 2 );
-		window.scrollTo( 0, top );
+		var offset
+		var top = focusPoint.documentOffsetTop() - ( window.innerHeight / 2 );
+
+		if (focusPoint.offsetTop + focusPoint.offsetHeight > top + window.innerHeight)
+		{
+			focusPoint.scrollIntoView(false)
+		}
+		else
+		{
+			window.scrollTo( 0, top );
+		}
 	}
 };
 

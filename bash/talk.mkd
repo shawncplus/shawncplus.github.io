@@ -35,19 +35,18 @@ A "substitution" is any of the above ways to recall a previous command/parameter
 	* `<substitution>:h` - The "head" of the string, ie., the path minus the filename
 	* `<substitution>:q` - Surround the substitution with single quotes
 	* `<substitution>:x` - Split the substitution on spaces/newlines and then surround those with quotes
-
-Example:
+	* **Example**:
 
     > cat /foo/bar /baz/quz
     ...
     > echo !cat:*:x
 	echo '/foo/bar' '/baz/quz'
 
-8. History settings
+9. History settings
 All of these you can set in your .bashrc with `export <setting>=<value>`
-	* HISTSIZE (number) - How many entries to store (defaults to 500)
-	* HISTCONTROL (string) - Behavior of the history
-		* ignoredups - Don't put the command in your history if it's the same as the previous command
-		* ignorespace - Don't put the command in your history if there is leading whitespace. Useful
+	* `HISTSIZE` (number) - How many entries to store (defaults to 500)
+	* `HISTCONTROL` (string) - Behavior of the history
+		* `ignoredups` - Don't put the command in your history if it's the same as the previous command
+		* `ignorespace` - Don't put the command in your history if there is leading whitespace. Useful
 			if you want to run some commands without having them be in the bare history file
-		* ignoreboth - Both of the previous settings
+		* `ignoreboth` - Both of the previous settings
