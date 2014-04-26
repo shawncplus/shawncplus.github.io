@@ -95,7 +95,7 @@ div.container > ol > li:before {
 	left: -1em;
 	width: 0.8em;
 
-	font-family: "M+ 1c";
+	font-family: mplus-1c-regular;
 	font-weight: bold;
 	color: #555;
 	content: counter(li-counter);
@@ -107,7 +107,7 @@ div.container > ol > li.selected:before {
 }
 
 ol li > p {
-	font-family: "M+ 1c";
+	font-family: mplus-1c-regular;
 }
 
 ol li.selected {
