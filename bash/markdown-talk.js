@@ -32,16 +32,9 @@ document.onkeydown = function (e)
 		focusPoint.classList.add('selected');
 
 		var offset
-		var top = focusPoint.documentOffsetTop() - ( window.innerHeight / 2 );
+		var top = focusPoint.documentOffsetTop() - ( window.innerHeight / 2 ) + (focusPoint.offsetHeight / 2);
 
-		if (focusPoint.offsetTop + focusPoint.offsetHeight > top + window.innerHeight)
-		{
-			focusPoint.scrollIntoView(false)
-		}
-		else
-		{
-			window.scrollTo( 0, top );
-		}
+		window.scrollTo(0, Math.min(top, focusPoint.offsetTop));
 	}
 };
 
