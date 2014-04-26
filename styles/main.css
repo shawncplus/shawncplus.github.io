@@ -1,0 +1,75 @@
+body {
+	font-family: "M+ 1mn", monospace;
+	font-size: 25px;
+	line-height: 150%;
+	background-color: #222;
+	color: #e7e7e7;
+	margin: 0;
+}
+
+#header {
+	line-height: initial;
+	background-color: #111;
+	font-family: "M+ 1c", sans-serif;
+	padding: 0 10px;
+	font-weight: bold;
+	font-size: 30px;
+	color: #ae0;
+	text-align: center;
+}
+
+h1 {
+	margin: 0;
+}
+
+h2 {
+	color: #099;
+}
+
+h3, h4 {
+	color: #e80;
+}
+
+a:hover, a:focus {
+	color: #fff;
+	text-decoration: underline;
+}
+
+a, a:visited {
+	color: #fff;
+}
+
+li {
+	line-height: 150%;
+}
+
+#container {
+	padding: 20px 0 20px 10px;
+}
+
+#container > ol {
+	counter-reset: li-counter;
+}
+
+#container > ol > li {
+	list-style-type: none;
+	position: relative;
+	border-left: 1px solid #777;
+	padding-left: 10px;
+	margin-top: 10px;
+}
+
+div.container > ul > li:before {
+	position: absolute;
+	top: 0;
+	left: -1em;
+	width: 0.8em;
+
+	font-family: "M+ 1c";
+	font-weight: bold;
+	color: #099;
+}
+
+li > a {
+	font-family: "M+ 1c";
+}
