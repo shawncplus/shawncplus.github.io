@@ -106,6 +106,7 @@
 
 	function renderMarkdown(markdown)
 	{
+		var renderEvent = new Event('markdownrender');
 		var newNode = document.createElement('div');
 		newNode.className = 'container';
 		newNode.id = 'content';
@@ -150,7 +151,7 @@
 
 		// All done - show body
 		document.body.style.display = '';
+
+		document.dispatchEvent(renderEvent);
 	}
-
-
 })(window, document);

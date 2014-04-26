@@ -1,4 +1,4 @@
-$(function ()
+document.addEventListener('markdownrender', function ()
 {
 	var focusPoints = document.querySelectorAll('ol > li');
 	var focusIndex = 0;
