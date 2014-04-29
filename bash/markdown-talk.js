@@ -10,7 +10,13 @@ document.addEventListener('markdownrender', function ()
 		document.querySelector('div.container').appendChild(subtitle);
 	}
 
-	var focus_selector = (window.MarkdownTalk && window.MarkdownTalk.focusSelector) || 'ol > li';
+	var focus_query = window.location.search.match(/[\?&]focus=([^&#]*)/);
+	focus_query = focus_query ? decodeURIComponent(focus_query[1]) : null;
+	var focus_selector =
+		focus_query ||
+		(window.MarkdownTalk && window.MarkdownTalk.focusSelector) ||
+		'ol > li';
+
 	var focusPoints = document.querySelectorAll(focus_selector);
 	if (!focusPoints.length)
 	{
@@ -24,7 +30,6 @@ document.addEventListener('markdownrender', function ()
 
 	var hideLegend = false;
 	var spans = document.querySelectorAll('legend > span');
-	var initialLegendWidth = document.querySelector('legend').offsetWidth;
 
 	function toggleLegend(el)
 	{
@@ -35,7 +40,7 @@ document.addEventListener('markdownrender', function ()
 			span.style.display = hideLegend ? 'none' : '';
 		});
 		el.innerHTML = hideLegend ? '⊞' : '⊟';
-		el.parentNode.style.width = hideLegend ? el.offsetWidth + 'px' : initialLegendWidth + 'px';
+		el.parentNode.style.width = hideLegend ? el.offsetWidth + 'px' : 'auto';
 	};
 
 	document.querySelector('legend > a').onclick = toggleLegend;
