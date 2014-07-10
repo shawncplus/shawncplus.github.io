@@ -14,32 +14,9 @@
 	font-family: mplus-1c-thin;
 	src: url('/fonts/mplus-1c-thin.ttf') format('truetype');
 }
-body {
-	font-family: mplus-1mn-regular, monospace;
-	font-size: 25px;
-	line-height: 150%;
-	padding-top: 120px;
-	background-color: #222;
-	color: #e7e7e7;
-}
-
-.navbar-fixed-top {
-	position: absolute;
-}
-
-.navbar .brand, .navbar .subtitle {
-	text-align: center;
-	text-shadow: none;
-}
 
 .navbar .brand {
 	font-family: mplus-1c-regular, sans-serif;
-	padding: 22px 20px 5px 25px;
-	font-weight: bold;
-	font-size: 40px;
-	width: 100%;
-	border-right: none;
-	color: #ae0;
 }
 
 .navbar .subtitle {
@@ -48,89 +25,61 @@ body {
 }
 
 .navbar .navbar-inner {
-	background-image: none;
 	background-color: #111;
+}
+
+body {
+	font-family: mplus-1mn-regular, monospace;
+	color: #b9b8b1;
+	background-color: #222;
 }
 
 code, pre {
 	font-family: mplus-1mn-medium;
-	font-size: 20px;
-	line-height: 150%;
-	border: 1px solid #e1e1e8;
-	border-radius: 3px;
-	text-shadow: none;
-	background-color: black;
-}
-
-code span[class] {
-	color: white !important;
-}
-
-li {
-	line-height: 150%;
+	color: #ffffd7;
 }
 
 ol + p, pre + ol {
-	margin-top: 50px;
-	padding-bottom: 5px;
 	border-bottom: 5px solid #fb7;
 }
 
-div.container > ol {
-	counter-reset: li-counter;
-}
-
-div.container > ol > li {
-	list-style-type: none;
-	position: relative;
-	border-left: 1px solid #777;
-	padding-left: 10px;
-	margin-top: 10px;
-}
-
-
 div.container > ol > li:before {
-	position: absolute;
-	top: 0;
-	left: -1em;
-	width: 0.8em;
-
-	font-family: "M+ 1c";
-	font-weight: bold;
-	color: #555;
-	content: counter(li-counter);
-	counter-increment: li-counter;
-}
-
-div.container > ol > li.selected:before {
-	color: #099;
+	font-family: mplus-1c-regular;
 }
 
 ol li > p {
-	font-family: "M+ 1c";
-}
-
-ol li.selected {
-	border: 2px solid #099;
-	border-radius: 10px;
-	background-color: #181818;
-	padding: 10px;
-	margin: 10px 0;
-	border-left: none !important;
+	font-family: mplus-1c-regular;
 }
 
 blockquote {
 	border-color: #960050;
-	padding-left: 0;
 }
 
 blockquote p {
-	padding-left: 10px;
-	white-space: pre;
 	font-family: mplus-1mn-medium;
-	font-size: 20px;
-	line-height: 150%;
 	border: 1px solid #960050;
-	text-shadow: none;
-	background-color: black;
+}
+
+legend {
+	background-color: #1b1b1b;
+	border: 1px solid #ccc;
+	border-right: none;
+}
+
+legend a {
+	background-color: #121212;
+	border-right: 2px solid #222;
+}
+
+legend span {
+	border-right: 1px solid #c9c9c9;
+}
+
+legend span:last-child {
+	border: none;
+	padding: none;
+}
+
+legend span key {
+	color: #099;
 }

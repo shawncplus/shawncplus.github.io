@@ -1,45 +1,89 @@
-Element.prototype.documentOffsetTop = function ()
+document.addEventListener('markdownrender', function ()
 {
-	return this.offsetTop + ( this.offsetParent ? this.offsetParent.documentOffsetTop() : 0 );
-};
-
-var focusPoints = document.querySelectorAll('ol > li');
-var focusIndex = 0;
-focusPoints[focusIndex].classList.add('selected');
-document.onkeydown = function (e)
-{
-	if (e.keyCode !== 74 && e.keyCode !== 75 && e.keyCode !== 71)
+	// append the subtitle element to the navbar
+	var subel = document.querySelector('subtitle');
+	if (subel)
 	{
+		var subtitle = document.createElement('div');
+		subtitle.innerHTML = subel.innerHTML;
+		subtitle.classList.add('subtitle');
+		document.querySelector('div.container').appendChild(subtitle);
+	}
+
+	var focus_query = window.location.search.match(/[\?&]focus=([^&#]*)/);
+	focus_query = focus_query ? decodeURIComponent(focus_query[1]) : null;
+	var focus_selector =
+		focus_query ||
+		(window.MarkdownTalk && window.MarkdownTalk.focusSelector) ||
+		'ol > li';
+
+	var focusPoints = document.querySelectorAll(focus_selector);
+	if (!focusPoints.length)
+	{
+		// no need for the legend if they have nothing to navigate
+		document.querySelector('legend').style.display = 'none';
 		return;
 	}
 
-	if (e.keyCode === 71)
+	var focusIndex = 0;
+	focusPoints[focusIndex].classList.add('focus_point');
+
+	var hideLegend = false;
+	var spans = document.querySelectorAll('legend > span');
+
+	function toggleLegend(el)
 	{
-		window.scrollTo(0, 0);
-		focusPoints[focusIndex].classList.remove('selected');
-		focusIndex = 0;
-		focusPoints[focusIndex].classList.add('selected');
-		return;
-	}
+		el = el ? el.target : document.querySelector('legend > a');
+		hideLegend = !hideLegend;
+		Array.prototype.map.call(spans, function (span)
+		{
+			span.style.display = hideLegend ? 'none' : '';
+		});
+		el.innerHTML = hideLegend ? '⊞' : '⊟';
+		el.parentNode.style.width = hideLegend ? el.offsetWidth + 'px' : 'auto';
+	};
 
-	var direction = e.keyCode === 74 ? 1 : -1;
+	document.querySelector('legend > a').onclick = toggleLegend;
 
-	if (focusPoints[focusIndex + direction])
+	var topcontainer = document.querySelector('div.navbar-fixed-top');
+	window.onscroll = function ()
 	{
-		focusPoints[focusIndex].classList.remove('selected');
-		focusIndex += direction;
-		var focusPoint = focusPoints[focusIndex];
-		focusPoint.classList.add('selected');
+		document.querySelector('legend').style.top = Math.max(topcontainer.scrollHeight - scrollY, 0) + 'px';
+	};
 
-		var offset
-		var top = focusPoint.documentOffsetTop() - ( window.innerHeight / 2 ) + (focusPoint.offsetHeight / 2);
+	document.onkeydown = function (e)
+	{
+		var keys = [71, 74, 75, 76];
+		if (keys.indexOf(e.keyCode) < 0)
+		{
+			return;
+		}
 
-		window.scrollTo(0, Math.min(top, focusPoint.offsetTop));
-	}
-};
+		if (e.keyCode === 76) // l
+		{
+			return toggleLegend(); 
+		}
 
-var subtitle = document.createElement('div');
-subtitle.innerHTML = document.querySelector('subtitle').innerHTML;
-subtitle.classList.add('subtitle');
+		if (e.keyCode === 71) // g
+		{
+			window.scrollTo(0, 0);
+			focusPoints[focusIndex].classList.remove('focus_point');
+			focusIndex = 0;
+			focusPoints[focusIndex].classList.add('focus_point');
+			return;
+		}
 
-document.querySelector('div.container').appendChild(subtitle);
+		var direction = e.keyCode === 74 ? 1 : -1;
+
+		if (focusPoints[focusIndex + direction])
+		{
+			focusPoints[focusIndex].classList.remove('focus_point');
+			focusIndex += direction;
+			var focusPoint = focusPoints[focusIndex];
+			focusPoint.classList.add('focus_point');
+
+			var top = focusPoint.offsetTop - ( window.innerHeight / 2 ) + (focusPoint.offsetHeight / 2);
+			window.scrollTo(0, Math.min(top, focusPoint.offsetTop));
+		}
+	};
+});

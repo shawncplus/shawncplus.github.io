@@ -1,5 +1,14 @@
+@font-face {
+	font-family: mplus-1mn-regular;
+	src: url('/fonts/mplus-1mn-regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: mplus-1c-regular;
+	src: url('/fonts/mplus-1c-regular.ttf') format('truetype');
+}
+
 body {
-	font-family: "M+ 1mn", monospace;
+	font-family: mplus-1mn-regular, monospace;
 	font-size: 25px;
 	line-height: 150%;
 	background-color: #222;
@@ -10,7 +19,7 @@ body {
 #header {
 	line-height: initial;
 	background-color: #111;
-	font-family: "M+ 1c", sans-serif;
+	font-family: mplus-1c-regular, sans-serif;
 	padding: 0 10px;
 	font-weight: bold;
 	font-size: 30px;
@@ -65,11 +74,11 @@ div.container > ul > li:before {
 	left: -1em;
 	width: 0.8em;
 
-	font-family: "M+ 1c";
+	font-family: mplus-1c-regular;
 	font-weight: bold;
 	color: #099;
 }
 
 li > a {
-	font-family: "M+ 1c";
+	font-family: mplus-1c-regular;
 }
