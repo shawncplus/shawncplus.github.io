@@ -1,3 +1,6 @@
 [submodule "js101"]
 	path = js101
 	url = https://github.com/shawncplus/js101.git
+[submodule "js301"]
+	path = js301
+	url = https://github.com/shawncplus/gdi-js301.git
